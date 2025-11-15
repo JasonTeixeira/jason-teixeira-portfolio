@@ -152,7 +152,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    ${({ theme }) => theme.mixins.boxShadow};
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
     position: relative;
     z-index: 2;
     padding: 25px;
@@ -160,6 +160,12 @@ const StyledProject = styled.li`
     background-color: var(--light-navy);
     color: var(--light-slate);
     font-size: var(--fz-lg);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      box-shadow: 0 20px 40px -15px var(--navy-shadow);
+      transform: translateY(-2px);
+    }
 
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -168,6 +174,7 @@ const StyledProject = styled.li`
 
       &:hover {
         box-shadow: none;
+        transform: none;
       }
     }
 
@@ -241,16 +248,22 @@ const StyledProject = styled.li`
   }
 
   .project-image {
-    ${({ theme }) => theme.mixins.boxShadow};
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
       opacity: 0.25;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px var(--navy-shadow);
     }
 
     a {
@@ -259,6 +272,7 @@ const StyledProject = styled.li`
       background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
       &:hover,
       &:focus {
@@ -282,7 +296,7 @@ const StyledProject = styled.li`
         right: 0;
         bottom: 0;
         z-index: 3;
-        transition: var(--transition);
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         background-color: var(--navy);
         mix-blend-mode: screen;
       }
@@ -292,6 +306,7 @@ const StyledProject = styled.li`
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1) brightness(90%);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
       @media (max-width: 768px) {
         object-fit: cover;
@@ -322,7 +337,6 @@ const Featured = () => {
               tech
               github
               external
-              cta
             }
             html
           }
@@ -355,7 +369,7 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const { external, title, tech, github, cover } = frontmatter;
             const image = getImage(cover);
 
             return (
@@ -382,17 +396,12 @@ const Featured = () => {
                     )}
 
                     <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
-                        </a>
-                      )}
                       {github && (
                         <a href={github} aria-label="GitHub Link">
                           <Icon name="GitHub" />
                         </a>
                       )}
-                      {external && !cta && (
+                      {external && (
                         <a href={external} aria-label="External Link" className="external">
                           <Icon name="External" />
                         </a>

@@ -25,10 +25,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--lightest-slate);
   }
 
-  /* Provide basic, default focus styles.*/
+  /* Professional focus styles for accessibility */
   :focus {
-    outline: 2px dashed var(--green);
-    outline-offset: 3px;
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
   }
 
   /*
@@ -41,13 +41,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /*
-    Optionally: If :focus-visible is supported on this
-    platform, provide enhanced focus styles for keyboard
-    focus.
+    Enhanced focus styles for keyboard focus - professional and visible
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
-    outline-offset: 3px;
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+    transition: outline-offset 0.2s ease;
+  }
+
+  /* Enhanced focus for interactive elements */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(192, 192, 192, 0.1);
   }
 
   /* Scrollbar Styles */
@@ -257,11 +264,19 @@ const GlobalStyle = createGlobalStyle`
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
-    transition: var(--transition);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    &:hover,
+    &:hover {
+      color: var(--green);
+      transform: translateY(-1px);
+    }
+
     &:focus {
       color: var(--green);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
 
     &.inline-link {

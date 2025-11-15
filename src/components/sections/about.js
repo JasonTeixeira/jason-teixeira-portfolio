@@ -11,7 +11,7 @@ const StyledAboutSection = styled.section`
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-gap: 50px;
+    grid-gap: 80px;
 
     @media (max-width: 768px) {
       display: block;
@@ -21,19 +21,32 @@ const StyledAboutSection = styled.section`
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
+    grid-template-columns: repeat(3, minmax(140px, 200px));
+    grid-gap: 15px 20px;
     padding: 0;
     margin: 20px 0 0 0;
     overflow: hidden;
     list-style: none;
 
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, minmax(140px, 200px));
+    }
+
     li {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 0;
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: var(--green);
+        transform: translateX(2px);
+      }
 
       &:before {
         content: '▹';
@@ -42,6 +55,11 @@ const StyledText = styled.div`
         color: var(--green);
         font-size: var(--fz-sm);
         line-height: 12px;
+        transition: all 0.2s ease;
+      }
+
+      &:hover:before {
+        color: var(--white);
       }
     }
   }
@@ -125,7 +143,48 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'Python',
+    'TypeScript',
+    'JavaScript',
+    'SQL',
+    'Bash',
+    'AWS',
+    'Google Cloud',
+    'Azure',
+    'Terraform',
+    'Kubernetes',
+    'Docker',
+    'Helm',
+    'FastAPI',
+    'Flask',
+    'Django',
+    'REST APIs',
+    'GraphQL',
+    'Microservices',
+    'PostgreSQL',
+    'MongoDB',
+    'Redis',
+    'DynamoDB',
+    'TensorFlow',
+    'PyTorch',
+    'Kafka',
+    'NumPy',
+    'Pandas',
+    'pytest',
+    'Playwright',
+    'Selenium',
+    'GitHub Actions',
+    'GitLab CI',
+    'Prometheus',
+    'Grafana',
+    'Git',
+    'React',
+    'Next.js',
+    'Gatsby',
+    'Node.js',
+    'WebSocket',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,33 +194,28 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              I started as a systems specialist at Home Depot, tired of manual deployments and
+              repetitive work. Learned Python to automate myself out of boring tasks—turns out
+              scripting your way out of tickets is way more fun than answering them.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              That led me into cloud infrastructure and test automation, where I realized flaky tests
+              cost more than building frameworks properly. I built testing frameworks that teams
+              actually wanted to use, reduced deployment times from hours to minutes, and eventually
+              got pulled into the world of quantitative finance.
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Fast-forward to today, and I've built{' '}
+              <a href="https://github.com/JasonTeixeira">algorithmic trading systems</a> processing
+              $10M+ daily volume, deployed Kubernetes-orchestrated infrastructure with auto-scaling,
+              and architected ML-driven alpha generation platforms. Currently at{' '}
+              <a href="https://github.com/JasonTeixeira/AlphaStream">HighStrike</a>, focused on
+              high-performance trading systems and distributed computing.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Here are the technologies I work with:</p>
           </div>
 
           <ul className="skills-list">

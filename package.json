@@ -1,17 +1,23 @@
 {
-  "name": "v4",
-  "description": "Personal Website V4",
+  "name": "jason-teixeira-portfolio",
+  "description": "Jason Teixeira - Senior Quantitative Engineer Portfolio",
   "version": "1.0.0",
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "Jason Teixeira <sage@sageideas.org>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiang7/v4"
+    "url": "https://github.com/JasonTeixeira/portfolio"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
+  "resolutions": {
+    "graphql": "^15.8.0"
+  },
+  "overrides": {
+    "graphql": "^15.8.0"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -33,6 +39,7 @@
   "dependencies": {
     "animejs": "^3.1.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "framer-motion": "^6.5.1",
     "gatsby": "^3.4.1",
     "gatsby-plugin-google-analytics": "^3.4.0",
     "gatsby-plugin-image": "^1.4.0",
@@ -57,6 +64,8 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.3.0",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.4.1",
     "scrollreveal": "^4.0.5",
     "styled-components": "^5.3.0"
   },

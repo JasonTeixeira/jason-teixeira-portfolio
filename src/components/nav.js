@@ -17,7 +17,7 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: rgba(10, 10, 10, 0.85);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -38,7 +38,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
+        background-color: rgba(10, 10, 10, 0.85);
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
@@ -131,6 +131,20 @@ const StyledLinks = styled.div`
 
       a {
         padding: 10px;
+        color: var(--lightest-slate);
+        opacity: 0.7;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        position: relative;
+
+        &:hover {
+          opacity: 1;
+          color: var(--white);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
 
         &:before {
           content: '0' counter(item) '.';
@@ -138,6 +152,27 @@ const StyledLinks = styled.div`
           color: var(--green);
           font-size: var(--fz-xxs);
           text-align: right;
+          transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        &:hover:before {
+          color: var(--white);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 5px;
+          left: 10px;
+          right: 10px;
+          height: 1px;
+          background: var(--green);
+          transform: scaleX(0);
+          transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        &:hover:after {
+          transform: scaleX(1);
         }
       }
     }

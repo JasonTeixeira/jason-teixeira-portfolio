@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { socialMedia } from '@config';
+import VisitorCounter from './visitorCounter';
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -77,7 +78,8 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    // Portfolio repository stats
+    fetch('https://api.github.com/repos/JasonTeixeira/portfolio')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
@@ -105,8 +107,8 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledCredit tabindex="-1">
-        <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Brittany Chiang</div>
+        <a href="https://github.com/JasonTeixeira/portfolio">
+          <div>Designed &amp; Built by Jason Teixeira</div>
 
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">
@@ -121,6 +123,7 @@ const Footer = () => {
             </div>
           )}
         </a>
+        <VisitorCounter />
       </StyledCredit>
     </StyledFooter>
   );

@@ -96,14 +96,26 @@ const mixins = {
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
-    transition: var(--transition);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    &:hover,
-    &:focus-visible {
-      outline: none;
+    &:hover {
       box-shadow: 3px 3px 0 0 var(--green);
       transform: translate(-4px, -4px);
     }
+
+    &:active {
+      box-shadow: 1px 1px 0 0 var(--green);
+      transform: translate(-2px, -2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 4px;
+      box-shadow: 3px 3px 0 0 var(--green);
+      transform: translate(-4px, -4px);
+    }
+
     &:after {
       display: none !important;
     }
@@ -119,14 +131,26 @@ const mixins = {
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
-    transition: var(--transition);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    &:hover,
-    &:focus-visible {
-      outline: none;
+    &:hover {
       box-shadow: 4px 4px 0 0 var(--green);
       transform: translate(-5px, -5px);
     }
+
+    &:active {
+      box-shadow: 2px 2px 0 0 var(--green);
+      transform: translate(-3px, -3px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 4px;
+      box-shadow: 4px 4px 0 0 var(--green);
+      transform: translate(-5px, -5px);
+    }
+
     &:after {
       display: none !important;
     }
