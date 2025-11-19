@@ -1,10 +1,9 @@
 ---
 title: 'From Help Desk Hell to Cloud Architect: My Actual Journey'
-description: 'I started answering printer tickets. Five years later, I'm deploying Kubernetes clusters handling millions in trades. Here's how I made the jump—and why you can too.'
+description: 'I started answering printer tickets. Five years later, I am deploying Kubernetes clusters handling millions in trades. Here is how I made the jump and why you can too.'
 date: '2024-11-18'
 draft: false
-slug: /pensieve/help-desk-to-cloud-architect
-featuredImage: './cover.jpg'
+slug: '/pensieve/help-desk-to-cloud-architect'
 category: 'Career'
 tags:
   - Career
