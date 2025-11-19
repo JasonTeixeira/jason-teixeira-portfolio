@@ -1,14 +1,16 @@
 ---
-date: '2024-04-01'
-title: 'NexusEncryption'
+date: '2024-06-01'
+title: 'Nexus Encryption'
+description: 'Desktop encryption tool with AES-256-GCM and OS keychain integration'
+slug: 'nexus-encryption'
 github: 'https://github.com/JasonTeixeira/NexusEncryption'
 external: ''
 tech:
+  - Next.js 15
   - Tauri
   - Rust
-  - React
-  - Encryption
-  - Desktop
+  - Web Crypto API
+  - TypeScript
 ---
 
-Cross-platform desktop encryption application built with Tauri (Rust + React). Lightweight alternative to Electron with native performance and smaller binary size. Secure file encryption, modern React frontend, Rust backend for cryptographic operations. Experiment in building security tools with modern desktop frameworks.
+Native desktop encryption application built with Next.js and Tauri. Features AES-256-GCM encryption, password vault, file encryption, and OS keychain integration (macOS Keychain, Windows Credential Manager). Built with Rust backend for native performance and security.

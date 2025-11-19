@@ -4,15 +4,16 @@ title: 'RiskRadar'
 cover: './demo.png'
 github: 'https://github.com/JasonTeixeira/RiskRadar'
 external: ''
+detailPage: '/projects/riskradar'
 tech:
-  - Next.js
+  - Next.js 14
   - FastAPI
   - PostgreSQL
-  - Redis
   - NumPy/Pandas
+  - Redis
   - Docker
 ---
 
-Full-stack portfolio risk management platform calculating Value at Risk (VaR), CVaR, Sharpe ratios, and portfolio optimization using Modern Portfolio Theory. Next.js frontend with Recharts visualizations, FastAPI backend with async NumPy/Pandas calculations, PostgreSQL for multi-portfolio support.
+Portfolio risk management platform with VaR, CVaR, and Sharpe ratio calculations. Implements Monte Carlo simulations, Markowitz optimization, and Hierarchical Risk Parity. **Used daily** for managing 2-3 portfolios with 30-40 positions.
 
-**Risk calculations:** Historical VaR, Parametric VaR, Monte Carlo simulations (10,000+ paths), maximum drawdown, correlation analysis. Portfolio optimization via mean-variance, risk parity, and Hierarchical Risk Parity. Used daily for personal portfolio management (2-3 portfolios, 30-40 positions).
+**Real-world use:** Full-stack Next.js + FastAPI system that I rely on for actual portfolio risk analysis. Quant finance knowledge in production.

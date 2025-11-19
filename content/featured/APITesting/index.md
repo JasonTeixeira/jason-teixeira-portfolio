@@ -4,6 +4,7 @@ title: 'API Test Automation Framework'
 cover: './demo.png'
 github: 'https://github.com/JasonTeixeira/API-Test-Automation-Wireframe'
 external: ''
+detailPage: '/projects/api-testing'
 tech:
   - Python
   - Pytest

@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { graphql, Link } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '@components';
-import { IconBookmark } from '@components/icons';
+import BlogCard from '../../components/blogCard';
+import BlogFilters from '../../components/blogFilters';
 
 const StyledMainContainer = styled.main`
   & > header {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     text-align: center;
 
     a {
@@ -28,18 +28,20 @@ const StyledMainContainer = styled.main`
     margin-top: 20px;
   }
 `;
-const StyledGrid = styled.ul`
+
+const StyledGrid = styled.div`
   ${({ theme }) => theme.mixins.resetList};
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   margin-top: 50px;
   position: relative;
 
   @media (max-width: 1080px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
   }
 `;
+
 const StyledPost = styled.li`
   transition: var(--transition);
   cursor: default;
@@ -143,59 +145,97 @@ const StyledPost = styled.li`
 `;
 
 const PensievePage = ({ location, data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const allPosts = data.allMarkdownRemark.edges;
+  
+  // State for filters
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTag, setSelectedTag] = useState('all');
+  const [sortBy, setSortBy] = useState('newest');
+
+  // Extract all unique tags
+  const allTags = useMemo(() => {
+    const tagSet = new Set();
+    allPosts.forEach(({ node }) => {
+      if (node.frontmatter.tags) {
+        node.frontmatter.tags.forEach(tag => tagSet.add(tag));
+      }
+    });
+    return Array.from(tagSet).sort();
+  }, [allPosts]);
+
+  // Filter and sort posts
+  const filteredPosts = useMemo(() => {
+    let filtered = allPosts.filter(({ node }) => {
+      const { title, description, tags } = node.frontmatter;
+      
+      // Search filter
+      const searchLower = searchTerm.toLowerCase();
+      const matchesSearch = !searchTerm || 
+        title.toLowerCase().includes(searchLower) ||
+        (description && description.toLowerCase().includes(searchLower));
+      
+      // Tag filter
+      const matchesTag = selectedTag === 'all' || 
+        (tags && tags.includes(selectedTag));
+      
+      return matchesSearch && matchesTag;
+    });
+
+    // Sort
+    filtered.sort(({ node: a }, { node: b }) => {
+      switch (sortBy) {
+        case 'oldest':
+          return new Date(a.frontmatter.date) - new Date(b.frontmatter.date);
+        case 'title':
+          return a.frontmatter.title.localeCompare(b.frontmatter.title);
+        case 'newest':
+        default:
+          return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+      }
+    });
+
+    return filtered;
+  }, [allPosts, searchTerm, selectedTag, sortBy]);
+
+  // Get featured post (most recent)
+  const featuredPost = filteredPosts[0];
+  const remainingPosts = filteredPosts.slice(1);
 
   return (
     <Layout location={location}>
-      <Helmet title="Pensieve" />
+      <Helmet title="Blog" />
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
+          <h1 className="big-heading">Blog</h1>
           <p className="subtitle">
-            <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
-              a collection of memories
-            </a>
+            Technical deep dives, war stories, and lessons learned
           </p>
         </header>
 
-        <StyledGrid>
-          {posts.length > 0 &&
-            posts.map(({ node }, i) => {
-              const { frontmatter } = node;
-              const { title, description, slug, date, tags } = frontmatter;
-              const formattedDate = new Date(date).toLocaleDateString();
+        <BlogFilters
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          selectedTag={selectedTag}
+          onTagChange={setSelectedTag}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+          tags={allTags}
+          resultsCount={filteredPosts.length}
+        />
 
-              return (
-                <StyledPost key={i}>
-                  <div className="post__inner">
-                    <header>
-                      <div className="post__icon">
-                        <IconBookmark />
-                      </div>
-                      <h5 className="post__title">
-                        <Link to={slug}>{title}</Link>
-                      </h5>
-                      <p className="post__desc">{description}</p>
-                    </header>
-
-                    <footer>
-                      <span className="post__date">{formattedDate}</span>
-                      <ul className="post__tags">
-                        {tags.map((tag, i) => (
-                          <li key={i}>
-                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className="inline-link">
-                              #{tag}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </footer>
-                  </div>
-                </StyledPost>
-              );
-            })}
-        </StyledGrid>
+        {filteredPosts.length > 0 ? (
+          <StyledGrid>
+            {featuredPost && <BlogCard post={featuredPost.node} featured />}
+            {remainingPosts.map(({ node }, i) => (
+              <BlogCard key={i} post={node} />
+            ))}
+          </StyledGrid>
+        ) : (
+          <p style={{ textAlign: 'center', color: 'var(--slate)', marginTop: '50px' }}>
+            No posts found matching your criteria.
+          </p>
+        )}
       </StyledMainContainer>
     </Layout>
   );

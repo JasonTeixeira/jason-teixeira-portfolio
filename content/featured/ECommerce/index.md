@@ -4,6 +4,7 @@ title: 'E-Commerce Test Automation Suite'
 cover: './demo.png'
 github: 'https://github.com/JasonTeixeira/E-Commerce-Test-Suite'
 external: ''
+detailPage: '/projects/ecommerce-testing'
 tech:
   - Python
   - Playwright

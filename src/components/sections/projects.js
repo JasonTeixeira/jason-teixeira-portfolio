@@ -27,13 +27,17 @@ const StyledProjectsSection = styled.section`
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
     position: relative;
     margin-top: 50px;
 
     @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -171,6 +175,7 @@ const Projects = () => {
       projects: allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/content/projects/" }
+          frontmatter: { slug: { ne: null } }
         }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -178,11 +183,23 @@ const Projects = () => {
           node {
             frontmatter {
               title
+              description
+              slug
               tech
               github
               external
             }
-            html
+          }
+        }
+      }
+      featured: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
           }
         }
       }
@@ -205,14 +222,21 @@ const Projects = () => {
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
+  // Get titles of featured projects to exclude them from "Other Noteworthy" section
+  const featuredTitles = data.featured.edges.map(({ node }) => node.frontmatter.title);
+
+  // Filter out projects that are already featured
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
+  const allProjects = data.projects.edges.filter(({ node }) => node);
+  const projects = allProjects.filter(
+    ({ node }) => !featuredTitles.includes(node.frontmatter.title)
+  );
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
   const projectInner = node => {
-    const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+    const { frontmatter } = node;
+    const { github, external, title, tech, description, slug } = frontmatter;
 
     return (
       <div className="project-inner">
@@ -241,12 +265,12 @@ const Projects = () => {
           </div>
 
           <h3 className="project-title">
-            <a href={external} target="_blank" rel="noreferrer">
-              {title}
-            </a>
+            <Link to={`/projects/${slug}`}>{title}</Link>
           </h3>
 
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="project-description">
+            <p>{description}</p>
+          </div>
         </header>
 
         <footer>

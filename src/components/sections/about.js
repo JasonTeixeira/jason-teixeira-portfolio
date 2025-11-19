@@ -194,25 +194,36 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I started as a systems specialist at Home Depot, tired of manual deployments and
-              repetitive work. Learned Python to automate myself out of boring tasks—turns out
-              scripting your way out of tickets is way more fun than answering them.
+              I build systems at the intersection of three worlds most engineers don't cross: <strong>quantitative 
+              finance, cloud infrastructure, and machine learning</strong>. That's my unfair advantage.
             </p>
 
             <p>
-              That led me into cloud infrastructure and test automation, where I realized flaky tests
-              cost more than building frameworks properly. I built testing frameworks that teams
-              actually wanted to use, reduced deployment times from hours to minutes, and eventually
-              got pulled into the world of quantitative finance.
+              Started as a systems specialist at Home Depot, where I automated myself out of manual 
+              deployments and repetitive work. Learned Python not to "become a developer," but to stop 
+              answering the same tickets twice. Turns out scripting your way out of boring work is a 
+              superpower.
             </p>
 
             <p>
-              Fast-forward to today, and I've built{' '}
-              <a href="https://github.com/JasonTeixeira">algorithmic trading systems</a> processing
-              $10M+ daily volume, deployed Kubernetes-orchestrated infrastructure with auto-scaling,
-              and architected ML-driven alpha generation platforms. Currently at{' '}
-              <a href="https://github.com/JasonTeixeira/AlphaStream">HighStrike</a>, focused on
-              high-performance trading systems and distributed computing.
+              That led me into cloud infrastructure and test automation—building testing frameworks teams 
+              actually wanted to use, reducing deployment times from hours to minutes, and eventually 
+              landing in quantitative finance where I found my niche.
+            </p>
+
+            <p>
+              Today, I architect and deploy{' '}
+              <a href="https://github.com/JasonTeixeira">algorithmic trading systems</a> processing 
+              $10M+ daily volume, Kubernetes infrastructure auto-scaling across 3 cloud providers, and 
+              ML-driven alpha generation platforms with sub-100ms latency. Currently at{' '}
+              <a href="https://github.com/JasonTeixeira/AlphaStream">HighStrike</a>, building 
+              high-performance distributed systems that have to work perfectly—because downtime costs 
+              money per second, not per hour.
+            </p>
+
+            <p>
+              <strong>My approach:</strong> Automate first, document obsessively, and build systems that 
+              don't break at 2 AM. I ship production code, not science experiments.
             </p>
 
             <p>Here are the technologies I work with:</p>

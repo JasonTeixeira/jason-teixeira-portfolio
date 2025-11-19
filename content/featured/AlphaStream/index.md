@@ -1,18 +1,20 @@
 ---
-date: '4'
+date: '1'
 title: 'AlphaStream'
 cover: './demo.png'
 github: 'https://github.com/JasonTeixeira/AlphaStream'
 external: ''
+detailPage: '/projects/alphastream'
 tech:
   - Python
   - TensorFlow
   - XGBoost
+  - LightGBM
   - FastAPI
   - Redis
   - Docker
 ---
 
-ML-driven trading signal platform with 200+ technical indicators, ensemble methods (Random Forest + XGBoost + LightGBM), and walk-forward backtesting. Achieved 1.8-2.4 Sharpe ratio in backtesting with 58-65% directional accuracy after transaction costs. FastAPI server with WebSocket streaming, Redis caching, and automated drift detection.
+ML-powered trading signal generation system with 200+ technical indicators and ensemble methods. Achieved **1.8-2.4 Sharpe ratio** with 58-65% accuracy after transaction costs. Production-ready with FastAPI, WebSocket streaming, and automated drift detection.
 
-**The hard parts:** Fighting lookahead bias in feature engineering, handling transaction costs that killed theoretical edge, implementing model drift monitoring (models degrade fast in changing markets), optimizing NumPy calculations for <100ms signal latency. 6,000+ lines of production Python code.
+**Why it's impressive:** 6,000+ lines of production Python code. Complete ML pipeline from data → features → models → backtesting → deployment. Real metrics, honest about challenges.

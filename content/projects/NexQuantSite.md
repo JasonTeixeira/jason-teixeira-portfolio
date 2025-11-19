@@ -1,6 +1,8 @@
 ---
 date: '2024-09-01'
-title: 'NexQuantSite Trading Platform'
+title: 'NexQuantSite'
+description: 'Full-stack trading platform with 590K+ LOC, 60+ admin features, and real-time WebSocket integration'
+slug: 'nexquantsite'
 github: 'https://github.com/JasonTeixeira/NexQuantSite'
 external: ''
 tech:

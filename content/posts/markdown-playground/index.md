@@ -4,6 +4,8 @@ description: abc234
 date: 2019-12-07
 draft: true
 slug: /pensieve/markdown-playground
+featuredImage: './cover.jpg'
+category: 'Tutorial'
 tags:
   - Testing
 ---
