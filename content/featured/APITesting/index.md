@@ -2,7 +2,7 @@
 date: '2'
 title: 'API Test Automation Framework'
 cover: './demo.png'
-github: 'https://github.com/JasonTeixeira/API-Test-Automation-Wireframe'
+github: 'https://github.com/JasonTeixeira/API-Testing-Framework'
 external: ''
 detailPage: '/projects/api-testing'
 tech:
