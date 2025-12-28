@@ -2,9 +2,9 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Jason Teixeira (Sage)',
+    title: 'Jason Teixeira | Test Automation Architect',
     description:
-      'Jason Teixeira is a Senior Test Automation Engineer who builds reliable, scalable test frameworks and backend systems that don\'t break at 2 AM.',
+      'Test Automation Architect specializing in building frameworks teams actually want to use. Expert in E2E, performance, visual regression, and contract testing for distributed systems. Currently seeking Senior/Staff Test Automation roles.',
     siteUrl: 'https://jasonteixeira.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@jasonteixeira',

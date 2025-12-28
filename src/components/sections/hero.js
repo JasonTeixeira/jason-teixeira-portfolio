@@ -218,9 +218,13 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I'm a Senior Quantitative Engineer specializing in building high-performance trading systems,
-        cloud infrastructure, and automated testing frameworks. Currently focused on algorithmic trading,
-        distributed systems, and ML-driven alpha generation.
+        I'm a Test Automation Architect specializing in building frameworks teams actually want to use.
+        I focus on test automation for distributed systems where "it works on my machine" isn't good enough—E2E,
+        performance, visual regression, and contract testing. Currently building high-performance testing infrastructure
+        for algorithmic trading systems that process $10M+ daily volume.
+      </p>
+      <p style={{ marginTop: '15px', fontSize: 'var(--fz-sm)', color: 'var(--green)' }}>
+        <strong>Currently seeking:</strong> Senior/Staff Test Automation Engineer or Automation Architect roles • Remote or Hybrid
       </p>
     </>
   );
