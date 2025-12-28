@@ -13,4 +13,4 @@ tech:
   - PostgreSQL
 ---
 
-Enterprise-grade consumer-driven contract testing framework for microservices architectures. Features Pact integration, provider verification, multi-provider support, contract versioning, Pact Broker integration, and CI/CD pipelines. Enables independent service testing, prevents breaking changes, and eliminates the need for slow integration tests in distributed systems.
+Consumer-driven contract testing implementation using Pact. Lets microservices test their interactions independently without needing the full environment running. Provider verification happens separately, so services can deploy independently as long as they meet the contract. Includes contract versioning, Pact Broker integration for contract storage, and pytest fixtures for easy test setup. Addresses the common problem where services break each other in production despite all tests passing.

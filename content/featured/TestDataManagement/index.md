@@ -13,4 +13,4 @@ tech:
   - Pandas
 ---
 
-Enterprise-grade framework for automated test data generation, seeding, and management. Solves the \$million problem of manual data creation that wastes 30-40% of testing time. Features schema-based generation, multi-database support, GDPR-compliant PII masking, automatic cleanup, data versioning, and pytest integration. Saves \$582,400/year for a 10-person team while ensuring reproducible scenarios and compliance.
+Framework for generating and managing test data in integration tests. Takes your database schema and generates realistic data using Faker, handles relationships between tables, and provides automatic cleanup via transaction rollback or cascade deletion. Supports PostgreSQL, MySQL, and MongoDB with connection pooling. The main problem this solves is the time spent manually creating test data - instead, you define what data you need and it generates it on the fly with proper cleanup.

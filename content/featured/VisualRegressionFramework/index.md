@@ -13,4 +13,4 @@ tech:
   - Docker
 ---
 
-Production-ready visual regression testing framework with multi-browser support (Chrome, Firefox, Safari). Features intelligent pixel-diff comparison, responsive testing across devices, dark mode testing, baseline management, and HTML reports with side-by-side diff highlighting. Built to replace expensive commercial tools like Percy and Applitools with enterprise-grade capabilities.
+Automated visual testing using Playwright for screenshot capture across Chrome, Firefox, and Safari. Uses OpenCV for pixel-diff comparison with baseline images. Handles responsive layouts at different viewport sizes and dark mode variants. Built as an alternative to commercial tools. Main challenge was handling rendering differences between browsers and making the comparison algorithm fast enough to run in CI pipelines without timing out.
