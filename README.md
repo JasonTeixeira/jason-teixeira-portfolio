@@ -1,125 +1,141 @@
-# Jason Teixeira - Portfolio
+# Jason Teixeira
 
-**A modern, high-performance portfolio** showcasing quantitative engineering, cloud infrastructure, and test automation expertise.
+**Test Automation Architect** | Building frameworks teams actually want to use
 
-🌐 **Live:** https://jasonteixeira.com (coming soon)  
-💻 **Local:** http://localhost:3068  
-⚡ **Built with:** Gatsby, React, Styled Components
+I build testing and automation systems for complex distributed environments—mostly focused on solving problems I've hit in my own work. Spent the last few years in quantitative trading and cloud infrastructure, where downtime costs money per second, not per hour.
 
----
-
-## 🎯 What Makes This Portfolio Unique
-
-Unlike generic portfolio templates, this site demonstrates **actual engineering skills** through:
-
-- **Live System Monitoring** - Real-time health checks and metrics
-- **Interactive Testing Demos** - Watch tests execute in real-time  
-- **Cloud Architecture Viz** - Interactive infrastructure diagrams
-- **Performance Analytics** - Trading system metrics and visualizations
-- **Technical Blog** - Deep-dives into K8s, testing, and quant finance
+🌐 **Portfolio:** [jasonteixeira.com](https://jasonteixeira.com)  
+📧 **Email:** sage@sageideas.org  
+💼 **LinkedIn:** [linkedin.com/in/jason-teixeira](https://linkedin.com/in/jason-teixeira)
 
 ---
 
-## 🚀 Quick Start
+## What I Do
 
-```bash
-# Install dependencies
-npm install
+I specialize in test automation for systems where "it works on my machine" isn't good enough. That means:
 
-# Start development server
-npm start
+- **E2E & Integration Testing** - Frameworks that run in CI/CD without flaking
+- **Performance & Load Testing** - Finding bottlenecks before production does
+- **Visual Regression Testing** - Catching UI bugs computers are better at spotting than humans
+- **Contract Testing** - Letting microservices deploy independently without breaking each other
+- **Test Data Management** - Generating realistic data without manually setting up fixtures
 
-# Build for production
-npm run build
-
-# Test production build locally
-npm run serve
-
-# Clean cache (if needed)
-npm run clean
-```
+My approach: automate first, document obsessively, build systems that don't wake you up at 2 AM.
 
 ---
 
-## 📦 Project Structure
+## Featured Automation Frameworks
 
-```
-sage-portfolio/
-├── content/
-│   ├── featured/           # 4 featured projects
-│   ├── jobs/               # Work experience
-│   ├── projects/           # Additional projects
-│   └── posts/              # Blog posts (new!)
-├── src/
-│   ├── components/
-│   │   ├── sections/       # Hero, About, Jobs, Projects, Contact
-│   │   ├── icons/          # SVG icon components
-│   │   └── ...
-│   ├── config.js           # Site configuration
-│   ├── styles/             # Global styles and theme
-│   └── pages/              # Route pages
-├── static/
-│   ├── resume.pdf          # Downloadable resume
-│   └── ...
-└── functions/              # Serverless backend functions (new!)
-    ├── visitor-counter/
-    ├── contact-form/
-    └── system-health/
-```
+### [Test Data Management Framework](https://github.com/JasonTeixeira/Test-Data-Management-Framework)
+Generates realistic test data from database schemas. Handles foreign key relationships and cleans up automatically via transaction rollback. Built this after spending too much time manually creating data for integration tests.
 
----
+**Stack:** Python, SQLAlchemy, Faker, pytest  
+**Supports:** PostgreSQL, MySQL, MongoDB
 
-## 🛠️ Tech Stack
+### [Visual Regression Testing Framework](https://github.com/JasonTeixeira/Visual-Regression-Framework)
+Automated screenshot comparison across browsers using Playwright and OpenCV. Main challenge was handling anti-aliasing differences between browsers and making the diff algorithm fast enough for CI pipelines.
 
-**Frontend:**
-- Gatsby 4.x - Static site generation
-- React 18 - UI library
-- Styled Components - CSS-in-JS
-- Framer Motion - Animations
-- ScrollReveal - Scroll animations
+**Stack:** Python, Playwright, OpenCV, Pillow, pytest  
+**Features:** Multi-browser, responsive testing, dark mode support
 
-**Backend (Serverless):**
-- AWS Lambda - Business logic
-- API Gateway - REST endpoints
-- DynamoDB - Data persistence
-- S3 + CloudFront - Hosting + CDN
+### [Contract Testing Framework](https://github.com/JasonTeixeira/Contract-Testing-Framework)
+Consumer-driven contract testing for microservices using Pact. Lets services test independently without needing the full stack. Addresses the "all tests pass but prod breaks" problem.
 
-**DevOps:**
-- GitHub Actions - CI/CD
-- Terraform - Infrastructure as Code
-- Docker - Containerization
+**Stack:** Python, Pact, pytest, FastAPI, Docker  
+**Features:** Provider verification, versioning, Pact Broker integration
+
+### [E2E Testing Framework](https://github.com/JasonTeixeira/Qa-Automation-Project)
+Page Object Model implementation with custom driver factory, screenshot helpers, and config management. Designed for teams that need tests to run reliably in CI/CD.
+
+**Stack:** Python, Selenium, pytest  
+**Features:** Multi-browser, parallel execution, detailed reporting
+
+### [API Testing Framework](https://github.com/JasonTeixeira/API-Testing-Framework)
+Complete REST API testing framework with FastAPI backend for testing. Includes authentication, request chaining, and response validation. Built to demonstrate API testing best practices.
+
+**Stack:** Python, FastAPI, pytest, Requests  
+**Features:** Token auth, database fixtures, comprehensive assertions
+
+### [Performance Testing Framework](https://github.com/JasonTeixeira/Performance-Testing-Framework)
+Load testing framework using Locust for distributed testing scenarios. Includes custom test scenarios, real-time metrics, and integration with monitoring systems.
+
+**Stack:** Python, Locust, Grafana  
+**Features:** Distributed execution, custom scenarios, metrics export
 
 ---
 
-## 🚢 Deployment
+## Technical Background
 
-### Netlify (Recommended)
-```bash
-# Push to GitHub
-git add .
-git commit -m "Ready for deployment"
-git push origin main
+**Primary Languages:** Python, JavaScript/TypeScript, SQL, Bash  
+**Testing & Automation:** pytest, Playwright, Selenium, Locust, Pact, TestContainers  
+**Cloud & Infrastructure:** AWS, GCP, Azure, Kubernetes, Docker, Terraform  
+**CI/CD:** GitHub Actions, GitLab CI, Jenkins, Docker, Helm  
+**Databases:** PostgreSQL, MongoDB, Redis, DynamoDB  
 
-# Connect to Netlify
-# Visit netlify.com → New site from Git → Select repo
-# Build command: npm run build
-# Publish directory: public
-```
-
----
-
-## 📄 License
-
-MIT © Jason Teixeira
+**Specialized In:**
+- Building test frameworks from scratch
+- Integrating testing into CI/CD pipelines
+- Performance testing at scale
+- Test data management strategies
+- Microservices testing patterns
 
 ---
 
-## 🙏 Acknowledgments
+## Background
 
-Original design inspiration from Brittany Chiang's v4 template.  
-Extensively customized and enhanced with unique features.
+Started at Home Depot as a systems specialist, where I automated myself out of manual deployments and repetitive work. Learned Python not to "become a developer," but to stop answering the same tickets twice.
+
+That led me into cloud infrastructure and test automation—building frameworks teams wanted to use, reducing deployment times from hours to minutes, and eventually landing in quantitative finance where I found my niche.
+
+Currently at HighStrike, building high-performance distributed systems for algorithmic trading. When your systems process $10M+ daily volume, you learn to test things thoroughly.
 
 ---
 
-**Built with ⚡ by Jason Teixeira**  
-_Engineering systems that don't break at 2 AM_
+## Current Focus
+
+**Building:**
+- API testing framework with automatic contract generation
+- Chaos engineering tools for distributed systems
+- Performance monitoring automation
+
+**Learning:**
+- Rust for high-performance testing tools
+- Advanced Kubernetes testing patterns
+- Property-based testing approaches
+
+**Interested In:**
+- Senior/Staff test automation roles
+- Building testing infrastructure at scale
+- Remote or hybrid positions
+- Companies serious about test automation (not just manual QA with Selenium)
+
+---
+
+## Open Source
+
+All my testing frameworks are open source. If you find them useful, feel free to use them, fork them, or contribute. I try to respond to issues within 24-48 hours.
+
+**Looking for contributors on:**
+- Visual regression framework optimization
+- Contract testing documentation
+- Performance testing examples
+
+---
+
+## Let's Connect
+
+Always happy to talk about test automation, distributed systems, or solving interesting testing challenges.
+
+📧 **Email:** sage@sageideas.org  
+💼 **LinkedIn:** [linkedin.com/in/jason-teixeira](https://linkedin.com/in/jason-teixeira)  
+🌐 **Portfolio:** [jasonteixeira.com](https://jasonteixeira.com)
+
+**I'm currently open to:**
+- Senior/Staff Test Automation Engineer roles
+- Automation Architect positions
+- Remote or hybrid opportunities
+- Contract/consulting for testing infrastructure
+
+---
+
+_Building systems that don't break at 2 AM_ ⚡
