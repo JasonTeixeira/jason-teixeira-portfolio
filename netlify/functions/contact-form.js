@@ -1,6 +1,8 @@
 // Contact Form Handler - Netlify Serverless Function
-// Handles form submissions with validation and email notifications
-// For production, integrate with SendGrid, AWS SES, or similar
+// Uses Resend for reliable email delivery
+// Get your API key at: https://resend.com
+
+const { Resend } = require('resend');
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -50,7 +52,7 @@ exports.handler = async (event, context) => {
     }
 
     // Spam protection: basic checks
-    const spamKeywords = ['viagra', 'casino', 'lottery', 'bitcoin'];
+    const spamKeywords = ['viagra', 'casino', 'lottery', 'bitcoin', 'crypto pump'];
     const messageText = message.toLowerCase();
     if (spamKeywords.some(keyword => messageText.includes(keyword))) {
       return {
@@ -60,14 +62,26 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // TODO: In production, send email via SendGrid, AWS SES, etc.
-    // For now, just log and return success
-    console.log('Contact form submission:', { name, email, message: message.substring(0, 50) + '...' });
+    // Send email using Resend
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // You would integrate email sending here:
-    // const sgMail = require('@sendgrid/mail');
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    // await sgMail.send({ ... });
+    const data = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>', // Use your verified domain when ready
+      to: ['sage@sageideas.org'],
+      replyTo: email,
+      subject: `Portfolio Contact: ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
+      `,
+    });
+
+    console.log('Email sent successfully:', data);
 
     return {
       statusCode: 200,
@@ -80,12 +94,25 @@ exports.handler = async (event, context) => {
     };
   } catch (error) {
     console.error('Contact form error:', error);
+    
+    // Provide helpful error messages
+    if (error.message.includes('API key')) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          error: 'Email service configuration error',
+          details: 'Please check RESEND_API_KEY environment variable',
+        }),
+      };
+    }
+
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
-        error: 'Failed to process form submission',
-        message: error.message,
+        error: 'Failed to send message',
+        message: 'Please try again or email directly at sage@sageideas.org',
       }),
     };
   }

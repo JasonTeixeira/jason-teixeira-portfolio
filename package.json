@@ -66,6 +66,7 @@
     "react-transition-group": "^4.3.0",
     "reactflow": "^11.11.4",
     "recharts": "^3.4.1",
+    "resend": "^6.6.0",
     "scrollreveal": "^4.0.5",
     "styled-components": "^5.3.0"
   },

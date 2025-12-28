@@ -10,6 +10,10 @@ module.exports = {
       name: 'Linkedin',
       url: 'https://www.linkedin.com/in/jason-teixeira',
     },
+    {
+      name: 'Twitter',
+      url: 'https://twitter.com/jasonteixeira',
+    },
   ],
 
   navLinks: [
