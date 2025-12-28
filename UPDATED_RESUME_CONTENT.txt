@@ -1,0 +1,41 @@
+UPDATED RESUME - ADD THESE 3 PROJECTS TO "SELECTED PROJECTS" SECTION
+==================================================================================
+
+Add these after "NexQuantSite" in your Selected Projects section:
+
+
+Test Data Management Framework – I built this because I got tired of manually setting up test data for integration tests. It generates realistic test data from your database schema using Faker, handles foreign key relationships, and cleans everything up automatically using transaction rollback. Works with PostgreSQL, MySQL, and MongoDB. The main challenge was handling cascade deletions properly and dealing with circular dependencies between tables. Stack: Python, SQLAlchemy, Faker, pytest.
+
+
+Visual Regression Testing Framework – Automated screenshot comparison tool using Playwright to capture screenshots across different browsers and OpenCV for pixel-by-pixel diffs. Handles responsive layouts and dark mode. I built this after getting frustrated with commercial tools that cost $200+/month for basic features. Biggest technical challenge was handling anti-aliasing differences between browsers and making the diff algorithm fast enough for CI pipelines. Stack: Python, Playwright, OpenCV, Pillow, pytest.
+
+
+Contract Testing Framework – Implementation of consumer-driven contract testing using Pact for microservices. Lets you test your services independently without spinning up the entire stack. Includes provider verification, versioning, and Pact Broker integration. Built this after dealing with too many "works on my machine" issues where services would break each other in production despite passing their own tests. Stack: Python, Pact, pytest, FastAPI, Docker.
+
+
+==================================================================================
+INSTRUCTIONS FOR UPDATING YOUR RESUME:
+==================================================================================
+
+1. Open your resume in Word/Google Docs/whatever editor you use
+2. Find the "Selected Projects" section
+3. Locate "NexQuantSite" project
+4. Add these 3 new projects right after it
+5. Keep the conversational tone - it makes you sound human
+6. Save and export as PDF
+7. Replace static/resume.pdf with the new version
+
+
+==================================================================================
+NOTE ABOUT WEBSITE FOCUS STATEMENT:
+==================================================================================
+
+Your current "About Me" section on the website is actually BETTER than the focus statement I drafted. It's more compelling, tells a real story, and has personality. I recommend keeping it as-is rather than replacing it with the shorter focus statement.
+
+Your current about section already:
+✓ Explains what you do
+✓ Gives your background (Home Depot → trading)
+✓ Sounds like a real person
+✓ Has technical depth
+
+No changes needed there - it's already excellent!
